@@ -1,0 +1,21 @@
+<mat-toolbar class="nav-topbar">
+  <mat-toolbar-row>
+    <button mat-flat-button color="primary" routerLink="/" routerLinkActive="active" class="nav-topbar-flatbutton"><mat-icon class="nav-topbar-icon">pan_tool</mat-icon></button>
+    {{ pageTitle | async }} | 
+    <button mat-menu-item *ngFor="let item of primaryNavigationItems | async" class="uk-active" class="uk-link-reset" style=" text-transform: capitalize">
+      {{ item.name }}
+    </button>
+    <span class="topmenu-spacer"></span>
+    <button mat-icon-button class="uk-link-reset" style="margin-right:1em; color: white">
+      More <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #appMenu="matMenu">
+
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div style="min-height: 50px;">&nbsp;</div>
+
+<button mat-menu-item *ngFor="let item of secondaryNavigationItems | async" class="uk-active" class="uk-link-reset" style=" text-transform: capitalize">
+  {{ item.name }}
+</button>

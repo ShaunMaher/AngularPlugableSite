@@ -1,0 +1,24 @@
+.topmenu-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar-multiple-rows {
+  min-height: 48px;
+}
+
+.nav-topbar {
+  height: 48px;
+  background-image: linear-gradient(to right, #22192f , #1A1122);
+  color: white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.nav-topbar-flatbutton {
+  background-color: transparent;
+}
+
+.nav-topbar-icon {
+  transform: scaleX(-1) rotate(10deg)
+}

@@ -1,2 +1,35 @@
-# AngularPlugableSite
-An attempt to use a plugin framework in Angular to make a multipurpose site that combines somewhat static content (e.g. Blog/Wiki) with more dynamic components with each component being optional and replaceable.
+# AngularPluginArchitecture
+
+Example of building AOT compiled Angular 9 plugin that can be consumed on client
+
+## Setup
+
+```
+npm install
+```
+
+Building shared plugin
+
+```
+npm run build:shared
+```
+
+Building plugins
+
+```
+npm run build:plugin1
+npm run build:plugin2
+```
+
+## Run
+
+Dev mode
+
+```
+npm start
+```
+
+
+## License
+
+MIT
