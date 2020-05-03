@@ -10,8 +10,8 @@ It would be really nice if I could put together a single frontend framework to
 cover as many tasks as possible and then mix and match "plugins" depending on
 the deployment.
 
-I have taken the example code for this article [Building an extensible Dynamic
-Pluggable Enterprise Application with Angular](https://medium.com/angular-in-depth/building-extensible-dynamic-pluggable-enterprise-application-with-angular-aed8979faba5)
+I have taken as a base the example code for this article [Building an extensible
+Dynamic Pluggable Enterprise Application with Angular](https://medium.com/angular-in-depth/building-extensible-dynamic-pluggable-enterprise-application-with-angular-aed8979faba5)
 
 My initial intention is to achieve the following (as plugins):
 * Site Navigation: Use either Angular's Material Design Components or VMware's
@@ -20,7 +20,7 @@ My initial intention is to achieve the following (as plugins):
   static content.  I will create content seperately and upload it somewhere as
   Markdown and the site will collect it with a HTTP request and display it.  I
   may expand this into a proper Wiki with editor and versioning, etc. in the
-  future but I'm starting with an achievable goal.
+  future but, I'm starting with an achievable goal.
 
 I'm trying to achieve as much as possible without having any serverside code.
 I'd like the "site" to be static files that can be dropped into any hosting
@@ -36,7 +36,8 @@ later.  I might be able to use the Github API that searches code within a
 repository as the site's search engine.  Git itself takes care of versioning.
 
 ### Themeing
-Can I make the site's theme a plugin so it can be easilly replaced?
+Can I make the site's theme (Material/Clarity/etc.) a plugin so it can
+be easilly replaced?
 
 ## Upstream Credits
 This site is based on the excellent [Building an extensible Dynamic
