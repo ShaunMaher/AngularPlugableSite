@@ -21,8 +21,6 @@ export class NavigationItem {
 //  (e.g. to the AppModule) when resolving a dependency provided outside the
 //  current plugin so it always creates a new instance.
 export function NAVIGATIONSERVICE_FACTORY(activatedRoute: ActivatedRoute) {
-  //console.log("NAVIGATIONSERVICE_FACTORY", parentRegistry, applicationRef);
-
   if ((window as any)[NAVIGATIONSERVICE_FACTORY_WINDOW_OBJECT_NAME]) {
     console.log("NAVIGATIONSERVICE_FACTORY use existing object", (window as any));
     return (window as any)[NAVIGATIONSERVICE_FACTORY_WINDOW_OBJECT_NAME];
