@@ -28,13 +28,15 @@ export class ClientPluginLoaderService extends PluginLoaderService {
     }
 
     const depsPromises = (config[pluginName].deps || []).map(dep => {
-      return SystemJs.import(config[dep].path).then(m => {
+      console.log("load(" + pluginName + "): ", document.baseURI, config[dep].path)
+      return SystemJs.import(document.baseURI + config[dep].path).then(m => {
         window['define'](dep, [], () => m.default);
       });
     });
 
     return Promise.all(depsPromises).then(() => {
-      return SystemJs.import(config[pluginName].path).then(
+      console.log("load(" + pluginName + "): ", document.baseURI, config[pluginName].path)
+      return SystemJs.import(document.baseURI + config[pluginName].path).then(
         module => module.default.default
       );
     });

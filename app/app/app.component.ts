@@ -1,11 +1,13 @@
 import {
   Component,
+  Inject,
   Injector,
   OnInit,
   ViewChild,
   ViewContainerRef,
   ComponentFactoryResolver
 } from '@angular/core';
+import { PlatformLocation } from '@angular/common';
 import { PluginLoaderService } from './services/plugin-loader/plugin-loader.service';
 
 @Component({
@@ -20,10 +22,14 @@ export class AppComponent implements OnInit {
   constructor(
     private injector: Injector,
     private pluginLoader: PluginLoaderService,
-    private cfr: ComponentFactoryResolver
-  ) {}
+    private cfr: ComponentFactoryResolver,
+    platformLocation: PlatformLocation
+  ) {
+    console.log("app.components: constructor, platformLocation", platformLocation);
+  }
 
   ngOnInit() {
+    //console.log("app.components: ngOnInit", this.baseHref);
     this.loadPlugin('plugin1');
     this.loadPlugin('navigation-topbar');
     this.loadPlugin('content');

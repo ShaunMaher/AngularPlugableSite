@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   imports: [
     HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: true }),
     SharedModule, //.forRoot(),
     AppRoutingModule,
     BrowserTransferStateModule,
