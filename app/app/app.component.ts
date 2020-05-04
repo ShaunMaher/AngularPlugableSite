@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.loadPlugin('plugin1');
     this.loadPlugin('navigation-topbar');
+    this.loadPlugin('content');
   }
 
   loadPlugin(pluginName: string) {

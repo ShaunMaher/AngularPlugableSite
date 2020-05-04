@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationItem, NavigationService } from './navigation.service';
 
 @Component({
   selector: 'shared-component',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
       Shared component
     </h4>
   `,
-  styles: []
+  styles: [],
+  //providers: [NavigationService]
 })
-export class SharedComponent {}
+export class SharedComponent {
+  constructor(private navigationService: NavigationService) {
+
+  }
+}

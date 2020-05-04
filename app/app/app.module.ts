@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from "@angular/router";
 
-import { SharedComponent } from '../../shared/lib/shared.component';
+//import { SharedComponent } from '../../shared/lib/shared.component';
+import { SharedModule } from '../../shared/lib/shared.module';
 
 import { AppComponent } from './app.component';
 import { PluginLoaderService } from './services/plugin-loader/plugin-loader.service';
@@ -19,17 +20,18 @@ import { TransferStateService } from './services/transfer-state.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
-  { path: "", component: SharedComponent },
-  { path: "article/:id", component: SharedComponent },
-  { path: "category/:id", component: SharedComponent }
+//  { path: "", component: SharedComponent },
+//  { path: "article/:id", component: SharedComponent },
+//  { path: "category/:id", component: SharedComponent }
 ];
 
 @NgModule({
-  declarations: [AppComponent, SharedComponent],
+  declarations: [AppComponent], //SharedComponent],
   imports: [
     HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    SharedModule, //.forRoot(),
     AppRoutingModule,
     BrowserTransferStateModule,
     BrowserAnimationsModule

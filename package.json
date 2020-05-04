@@ -7,8 +7,9 @@
     "build": "npm run build:plugins && npm run build:app",
     "postinstall": "tsc -p builder/tsconfig.builder.json",
     "build:app": "ng build --prod --aot",
-    "build:plugins": "npm run build:shared && npm run build:plugin1 && npm run build:plugin2 && npm run build:navigation-topbar",
+    "build:plugins": "npm run build:shared && npm run build:content && npm run build:plugin1 && npm run build:plugin2 && npm run build:navigation-topbar",
     "build:shared": "ng build shared --prod && ng build plugins --prod --aot --modulePath=shared#SharedModule --pluginName=shared --outputPath=./app/assets/plugins",
+    "build:content": "ng build plugins --prod --aot --modulePath=./content/content.module#ContentModule --pluginName=content --sharedLibs=shared --outputPath=./app/assets/plugins",
     "build:plugin1": "ng build plugins --prod --aot --modulePath=./plugin1/plugin1.module#Plugin1Module --pluginName=plugin1 --sharedLibs=shared --outputPath=./app/assets/plugins",
     "build:plugin2": "ng build plugins --prod --aot --modulePath=./plugin2/plugin2.module#Plugin2Module --pluginName=plugin2 --sharedLibs=shared --outputPath=./app/assets/plugins",
     "build:navigation-topbar": "ng build plugins --prod --aot --modulePath=./navigation-topbar/navigation-topbar.module#NavigationTopbarModule --pluginName=navigation-topbar --sharedLibs=shared --outputPath=./app/assets/plugins"

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Material Themeing
@@ -20,6 +20,24 @@ const sharedComponents = [SharedComponent, ButtonComponent, TabComponent, TabsCo
   imports: [CommonModule],
   declarations: [...sharedComponents],
   exports: [...sharedComponents, MatMenuModule, MatToolbarModule, MatButtonModule, MatIconModule],
-  providers: [SharedService, NavigationService]
+  //providers: [SharedService, NavigationService]
 })
-export class SharedModule { }
+export class SharedModule {
+
+  constructor (@Optional() @SkipSelf() parentModule?: SharedModule) {
+    console.log("SharedModule: constructor", this);
+    if (parentModule) {
+      throw new Error(
+        'SharedModule is already loaded. Import it in the AppModule only');
+    }
+  }
+
+  // static forRoot(): ModuleWithProviders {
+  //   return {
+  //     ngModule: SharedModule,
+  //     providers: [
+  //       {provide: NavigationService}
+  //     ]
+  //   };
+  // }
+}
