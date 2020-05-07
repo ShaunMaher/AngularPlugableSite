@@ -27,7 +27,7 @@ export class ContentComponent implements OnInit {
 
   constructor(navigationService: NavigationService, someService: SomeService, private router: Router) {
     let newItem = new NavigationItem(7, "Blog");
-    navigationService.addSecondaryNavigationItem(newItem);
+    navigationService.addPrimaryNavigationItem(newItem);
     console.log(navigationService.getSecondaryNavigationItems());
 
     //this.navigationService = navigationService;
