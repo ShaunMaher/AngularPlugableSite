@@ -1,3 +1,6 @@
 [submodule "plugins/clarity-topbar"]
 	path = plugins/clarity-topbar
 	url = git@github.com:ShaunMaher/AngularPlugableSite_Plugin_ClarityTopbar.git
+[submodule "plugins/material-topbar"]
+	path = plugins/material-topbar
+	url = git@github.com:ShaunMaher/AngularPlugableSite_Plugin_MaterialTopbar.git
