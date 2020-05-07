@@ -24,13 +24,18 @@
               "app/assets"
             ],
             "styles": [
+              "node_modules/@clr/icons/clr-icons.min.css",
+              "node_modules/@clr/ui/clr-ui.min.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "app/styles.css"
             ],
             "scripts": [
+              "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
               "node_modules/systemjs/dist/s.js",
               "node_modules/systemjs/dist/extras/named-register.js",
-              "node_modules/systemjs/dist/extras/amd.js"
+              "node_modules/systemjs/dist/extras/amd.js",
+              "node_modules/@clr/icons/clr-icons.min.js"
             ]
           },
           "configurations": {

@@ -18,6 +18,7 @@ import { ClientPluginLoaderService } from './services/plugin-loader/client-plugi
 import { PluginsConfigProvider } from './services/plugins-config.provider';
 import { TransferStateService } from './services/transfer-state.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClarityModule } from '@clr/angular';
 
 const appRoutes: Routes = [
 //  { path: "", component: SharedComponent },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     SharedModule, //.forRoot(),
     AppRoutingModule,
     BrowserTransferStateModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ClarityModule
   ],
   providers: [
     { provide: PluginLoaderService, useClass: ClientPluginLoaderService },

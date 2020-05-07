@@ -9,9 +9,9 @@
     "path": "/assets/plugins/plugin2.js",
     "deps": ["shared"]
   },
-  "navigation-topbar": {
-    "name": "navigation-topbar",
-    "path": "/assets/plugins/navigation-topbar.js",
+  "clarity-topbar": {
+    "name": "clarity-topbar",
+    "path": "/assets/plugins/clarity-topbar.js",
     "deps": ["shared"]
   },
   "content": {
