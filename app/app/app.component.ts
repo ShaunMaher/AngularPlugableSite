@@ -32,8 +32,11 @@ export class AppComponent implements OnInit {
     //console.log("app.components: ngOnInit", this.baseHref);
     //this.loadPlugin('plugin1');
     //this.loadPlugin('navigation-topbar');
-    this.loadPlugin('clarity-topbar');
-    this.loadPlugin('content');
+    this.pluginLoader.autoLoad(this).then(() => {
+      console.log("app.component: ngOnInit: this.pluginLoader.autoLoad complete");
+    })
+    //this.loadPlugin('clarity-topbar');
+    //this.loadPlugin('content');
   }
 
   loadPlugin(pluginName: string) {

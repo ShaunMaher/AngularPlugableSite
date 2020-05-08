@@ -21,6 +21,26 @@ export class ClientPluginLoaderService extends PluginLoaderService {
     );
   }
 
+  autoLoad(appComponent): Promise<boolean> {
+    const { config } = this.configProvider;
+
+    console.log("client-plugin-loader.service:autoLoad", config);
+
+    let loadPromises: Array<Promise<any>> = [];
+
+    for (let plugin in config) {
+      if (config[plugin]["autoload"]) {
+        console.log("client-plugin-loader.service:autoLoad: autoloading plugin: ", config[plugin]["autoload"]);
+        loadPromises.push(this.load(plugin).then((moduleType: any) => {
+          const entry = moduleType.entry;
+          const componentFactory = appComponent.cfr.resolveComponentFactory(entry);
+          appComponent.vcRef.createComponent(componentFactory, undefined, appComponent.injector);
+        }));
+      }
+    }
+    return Promise.all(loadPromises).then(results => {console.log("eh?", results); return true;});
+  }
+
   load<T>(pluginName): Promise<Type<T>> {
     const { config } = this.configProvider;
     if (!config[pluginName]) {
@@ -28,14 +48,14 @@ export class ClientPluginLoaderService extends PluginLoaderService {
     }
 
     const depsPromises = (config[pluginName].deps || []).map(dep => {
-      console.log("load(" + pluginName + "): ", document.baseURI, config[dep].path)
+      //console.log("load(" + pluginName + "): ", document.baseURI, config[dep].path)
       return SystemJs.import(document.baseURI + config[dep].path).then(m => {
         window['define'](dep, [], () => m.default);
       });
     });
 
     return Promise.all(depsPromises).then(() => {
-      console.log("load(" + pluginName + "): ", document.baseURI, config[pluginName].path)
+      //console.log("load(" + pluginName + "): ", document.baseURI, config[pluginName].path)
       return SystemJs.import(document.baseURI + config[pluginName].path).then(
         module => module.default.default
       );

@@ -7,16 +7,19 @@
   "plugin2": {
     "name": "Plugin 2",
     "path": "/assets/plugins/plugin2.js",
+    "enabled": false,
     "deps": ["shared"]
   },
   "clarity-topbar": {
     "name": "clarity-topbar",
     "path": "/assets/plugins/clarity-topbar.js",
+    "autoload": true,
     "deps": ["shared"]
   },
   "content": {
     "name": "content",
     "path": "/assets/plugins/content.js",
+    "enabled": false,
     "deps": ["shared"]
   },
   "shared": {

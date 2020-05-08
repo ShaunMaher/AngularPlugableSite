@@ -8,4 +8,6 @@ export abstract class PluginLoaderService {
   abstract provideExternals(): void;
 
   abstract load<T>(pluginName): Promise<Type<T>>;
+
+  abstract autoLoad(appComponent: any): Promise<boolean>;
 }
