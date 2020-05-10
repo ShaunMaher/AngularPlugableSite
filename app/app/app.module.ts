@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule.forRoot(appRoutes, { enableTracing: true, useHash: true }),
-    SharedModule, //.forRoot(),
+    SharedModule,
     AppRoutingModule,
     BrowserTransferStateModule,
     BrowserAnimationsModule,

@@ -9,5 +9,5 @@ export abstract class PluginLoaderService {
 
   abstract load<T>(pluginName): Promise<Type<T>>;
 
-  abstract autoLoad(appComponent: any): Promise<boolean>;
+  abstract autoLoad(appComponent: any): Promise<void>;
 }

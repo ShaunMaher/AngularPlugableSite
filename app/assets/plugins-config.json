@@ -19,8 +19,13 @@
   "content": {
     "name": "content",
     "path": "/assets/plugins/content.js",
-    "enabled": false,
     "deps": ["shared"]
+  },
+  "blog": {
+    "name": "blog",
+    "path": "/assets/plugins/blog.js",
+    "autoload": true,
+    "deps": ["shared", "content"]
   },
   "shared": {
     "name": "Shared",

@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy, Optional, SkipSelf, ApplicationRef } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subscriber } from 'rxjs';
 import { delay }      from 'rxjs/operators';
 
 const NAVIGATIONSERVICE_FACTORY_WINDOW_OBJECT_NAME = 'navigationService';
@@ -16,7 +16,7 @@ export class NavigationItem {
 
 // I *think* that this goes against the intended Angular pattern but it's
 //  non-trivial to create a singleton serivce in a plugin because the usual
-//  methods done seem to filter down into the plugins.  It *seems* like the
+//  methods don't seem to filter down into the plugins.  It *seems* like the
 //  dependency injection code inside a plugin doesn't look outside the plugin
 //  (e.g. to the AppModule) when resolving a dependency provided outside the
 //  current plugin so it always creates a new instance.
@@ -50,14 +50,25 @@ export class NavigationService implements OnDestroy {
   private pageTitle: string = 'Test title';
   private primaryNavigationItems: NavigationItem[] = [];
   private secondaryNavigationItems: NavigationItem[] = [];
+  private _PrimaryNavigationObservers: Subscriber<NavigationItem[]>[] = [];
 
   constructor(activatedRoute: ActivatedRoute) { console.log('NavigationService instance created.'); }
   ngOnDestroy() { console.log('NavigationService instance destroyed.'); }
 
   getPrimaryNavigationItems(): Observable<NavigationItem[]>  {
-    console.log("NavigationService: getPrimaryNavigationItems");
-    console.log(this.primaryNavigationItems);
-    return of(this.primaryNavigationItems);
+    var _self = this;
+    var observer = new Observable<NavigationItem[]>(( observer => {
+      console.log("NavigationService: getPrimaryNavigationItems");
+      console.log(this.primaryNavigationItems);
+
+      _self._PrimaryNavigationObservers.push(observer);
+      return {
+        unsubscribe() {
+          console.log("NavigaionService:PrimaryNavigationItems: unsubscribed");
+        }
+      }
+    }));
+    return observer;
   }
 
   getSecondaryNavigationItems(): Observable<NavigationItem[]>  {
@@ -68,6 +79,10 @@ export class NavigationService implements OnDestroy {
 
   addPrimaryNavigationItem(item: NavigationItem)  {
     this.primaryNavigationItems.push(item);
+    for (const index in this._PrimaryNavigationObservers) {
+      console.log("publishing new PrimaryNavigation to", this._PrimaryNavigationObservers[index]);
+      this._PrimaryNavigationObservers[index].next(this.primaryNavigationItems);
+    }
   }
 
   addSecondaryNavigationItem(item: NavigationItem)  {
