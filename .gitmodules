@@ -4,3 +4,6 @@
 [submodule "plugins/material-topbar"]
 	path = plugins/material-topbar
 	url = git@github.com:ShaunMaher/AngularPlugableSite_Plugin_MaterialTopbar.git
+[submodule "plugins/blog"]
+	path = plugins/blog
+	url = git@github.com:ShaunMaher/AngularPlugableSite_Plugin_Blog.git
