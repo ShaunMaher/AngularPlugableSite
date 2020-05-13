@@ -6,6 +6,7 @@ import { ContentComponent } from './content.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule],
+  exports: [ContentComponent],
   declarations: [ContentComponent],
   entryComponents: [ContentComponent]
 })

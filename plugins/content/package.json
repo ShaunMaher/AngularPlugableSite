@@ -1,0 +1,12 @@
+{
+  "name": "angular-plugin-architecture-plugin-content",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "non-postinstall": "tsc -p builder/tsconfig.builder.json",
+    "publish": "rm -fr dist/app && mkdir dist/app && cd dist/app && git clone --branch gh-pages --depth 1 git@github.com:ShaunMaher/AngularPlugableSite.git . && git rm -fr * && cd ../.. && tar -czf gh-pages.tgz dist/app && npm run build && tar -xzf gh-pages.tgz && cd dist/app && cp index.html 404.html && git add . && git commit -m 'test' && git push && cd ../.. && rm gh-pages.tgz",
+    "build": "ng build plugins --prod --aot --modulePath=./content/content.module#ContentModule --pluginName=content --sharedLibs=shared --outputPath=./app/assets/plugins"
+  },
+  "private": true
+}
