@@ -1,0 +1,16 @@
+{
+  "b27055f0-95b5-11ea-9735-b3fca9669169": {
+    "contentType": "",
+    "title": "Test Blog Entry",
+    "source": "https://shaunmaher.github.io/AngularPlugableSite/data/blog/b27055f0-95b5-11ea-9735-b3fca9669169.md",
+    "publicationDate": 1589441962,
+    "permaLink": "http://example.com"
+  },
+  "b27055f0-95b5-11ea-9735-b3fca9669170": {
+    "contentType": "",
+    "title": "Newer Blog Entry",
+    "source": "https://shaunmaher.github.io/AngularPlugableSite/data/blog/b27055f0-95b5-11ea-9735-b3fca9669170.md",
+    "publicationDate": 1589441970,
+    "permaLink": "http://example.com"
+  }
+}
