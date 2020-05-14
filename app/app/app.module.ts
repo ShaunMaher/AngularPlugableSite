@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserTransferStateModule,
     BrowserAnimationsModule,
-    ClarityModule
+    ClarityModule,
   ],
   providers: [
     { provide: PluginLoaderService, useClass: ClientPluginLoaderService },
