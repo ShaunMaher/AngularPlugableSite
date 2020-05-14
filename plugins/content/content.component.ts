@@ -55,6 +55,7 @@ export class ContentComponent implements OnInit {
     }
     newContent.content = `
     ## Dummy heading 1
+
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum
     mauris et magna sollicitudin, a egestas felis accumsan. Nunc enim est,
     laoreet quis elit et, vehicula dignissim nunc. Suspendisse imperdiet, mauris
@@ -72,6 +73,7 @@ export class ContentComponent implements OnInit {
     vehicula in est sed, lobortis tempor mi. Aliquam at mattis enim. Mauris
     rhoncus risus quam, sed scelerisque tortor dignissim vel.
     `;
+    newContent.content = newContent.content.replace('\n\n', '<br/><br/>\n\n')
     this.publishedContent = newContent;
 
     // Notify everyone that subscrives to this content that it has been updated
