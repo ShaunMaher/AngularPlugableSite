@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy, Optional, SkipSelf, ApplicationRef } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
 import { Observable, of, Subscriber } from 'rxjs';
 import { delay }      from 'rxjs/operators';
 
@@ -9,9 +9,15 @@ export class SearchTarget {
   constructor(public id: number, public name: string) { }
 }
 
-export class NavigationItem {
-  link:string = '';
-  constructor(public id: number, public name: string) { }
+// export class NavigationItem {
+//   link:string = '';
+//   constructor(public id: number, public name: string) { }
+// }
+
+export interface NavigationItem {
+  label?: string;
+  routerLink?: string;
+  externalLink?: string;
 }
 
 // I *think* that this goes against the intended Angular pattern but it's

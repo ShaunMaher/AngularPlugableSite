@@ -57,7 +57,7 @@ export class ClientPluginLoaderService extends PluginLoaderService {
       if (config[plugin]["autoload"]) {
         console.log("client-plugin-loader.service:autoLoad: autoloading plugin: ", plugin);
         let pluginload: Promise<void> = this.load(plugin).then((moduleType: any) => {
-          console.log("loaded: " + plugin);
+          console.log("loaded: " + plugin, moduleType.entry);
           const entry = moduleType.entry;
           const componentFactory = appComponent.cfr.resolveComponentFactory(entry);
           appComponent.vcRef.createComponent(componentFactory, undefined, appComponent.injector);

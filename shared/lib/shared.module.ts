@@ -25,7 +25,7 @@ const sharedComponents = [SharedComponent, ButtonComponent, TabComponent, TabsCo
 export class SharedModule {
 
   constructor (@Optional() @SkipSelf() parentModule?: SharedModule) {
-    console.log("SharedModule: constructor", this);
+    //console.log("SharedModule: constructor", this);
     if (parentModule) {
       throw new Error(
         'SharedModule is already loaded. Import it in the AppModule only');
